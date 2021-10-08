@@ -1,5 +1,5 @@
 {
-  "name": "slim-select",
+  "name": "slim-select-simple",
   "description": "Slim advanced select dropdown",
   "version": "1.27.0",
   "author": "Brian Voelker <brian@webiswhatido.com> (http://webiswhatido.com)",
@@ -31,32 +31,25 @@
     "multiselect"
   ],
   "scripts": {
-    "dev": "vue-cli-service serve",
     "library": "rm -r dist && cd src/slim-select && webpack && cd ../../ && npm run cleanDist && npm run renameDist && npm run mjs",
     "cleanDist": "rm dist/slimselectcss.min.js && rm dist/slimselectcss.js",
     "renameDist": "mv 'dist/slimselectcss.css' 'dist/slimselect.css' && mv 'dist/slimselectcss.min.css' 'dist/slimselect.min.css'",
-    "docs": "vue-cli-service build",
     "build": "npm run docs && npm run library",
-    "mjs": "(printf 'var exports = {};'; cat dist/slimselect.min.js; printf 'export default exports.SlimSelect') > dist/slimselect.min.mjs",
-    "lint": "vue-cli-service lint"
+    "docs": "node sidebar",
+    "serve": "node_modules/.bin/docsify serve docs",
+    "mjs": "(printf 'var exports = {};'; cat dist/slimselect.min.js; printf 'export default exports.SlimSelect') > dist/slimselect.min.mjs"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-typescript": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
     "ajv": "^6.12.6",
     "chance": "^1.1.7",
     "clipboard": "^2.0.4",
+    "docsify-cli": "^4.4.3",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "prismjs": "^1.23.0",
     "sass-loader": "^10.1.0",
     "typescript": "^3.7.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "vue": "^2.6.12",
-    "vue-router": "^3.4.9",
-    "vue-template-compiler": "^2.6.12",
-    "vuex": "^3.6.0",
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {

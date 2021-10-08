@@ -1,5 +1,96 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Slim Select</title><link rel="shortcut icon" href="favicon.ico"><meta name="description" content="Slim vanilla javascript select dropdown"><meta property="og:type" content="article"><meta property="og:title" content="Slim Select"><meta property="og:description" content="Slim vanilla javascript select dropdown"><link href="/css/home.57020178.css" rel="prefetch"><link href="/css/install.baa5d3fb.css" rel="prefetch"><link href="/css/methods.728c742a.css" rel="prefetch"><link href="/css/options.b28a32ef.css" rel="prefetch"><link href="/css/selects.1a7e1e6a.css" rel="prefetch"><link href="/js/home.8bcb44fd.js" rel="prefetch"><link href="/js/install.02f31028.js" rel="prefetch"><link href="/js/methods.1b31e988.js" rel="prefetch"><link href="/js/options.39fe1005.js" rel="prefetch"><link href="/js/selects.f4d0b859.js" rel="prefetch"><link href="/css/app.d5840d21.css" rel="preload" as="style"><link href="/css/chunk-vendors.4db6930d.css" rel="preload" as="style"><link href="/js/app.db13c724.js" rel="preload" as="script"><link href="/js/chunk-vendors.cc40aa28.js" rel="preload" as="script"><link href="/css/chunk-vendors.4db6930d.css" rel="stylesheet"><link href="/css/app.d5840d21.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but slim select doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script async src="https://www.googletagmanager.com/gtag/js?id=UA-96955238-1"></script><script>window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" -->
+ 
+  <!-- Theme: Simple (latest v0.x.x) docsify-themeable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-      gtag('config', 'UA-96955238-1');</script><script src="/js/chunk-vendors.cc40aa28.js"></script><script src="/js/app.db13c724.js"></script></body></html>
+  <style>
+    :root {
+      /* Reduce the font size */
+      --base-font-size: 15px;
+  
+      /* Change the theme color hue */
+      --theme-hue: 325;
+  
+      /* Change the sidebar bullets */
+      --sidebar-nav-link-before-content: '';
+    }
+  </style>
+
+  <script>
+    localStorage.clear();
+  </script>
+
+</head>
+<body>
+  <div id="app">Please wait...</div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: '',
+      coverpage: false,
+      loadSidebar: true,
+      loadNavbar: false,
+      search: 'auto',
+
+      // docsify-themeable
+      themeable: {
+          readyTransition : true, // default
+          responsiveTables: true  // default
+      },
+      plugins: [
+        function(hook) {
+          var footer = [
+            '<hr/>',
+            '<footer>',
+            '<span>Slim-Select</span>',
+            '</footer>'
+          ].join('');
+
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ],
+      // draw.io support
+      markdown: {
+        renderer: {
+
+          code: function (code, lang) {
+            if (lang === 'drawio') {
+              if (window.drawioConverter) {
+                return window.drawioConverter(code)
+              } else {
+                return `<div class='drawio-code'>${code}</div>`
+              }
+            } else {
+              return this.origin.code.apply(this, arguments);
+            }
+          }
+        }
+      },
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  
+  <!-- Draw.io support -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-drawio/viewer.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script>
+
+  <!--  docsify-themeable -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+
+</body>
+</html>
